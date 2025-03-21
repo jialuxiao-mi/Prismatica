@@ -70,7 +70,10 @@ int main(int argc, char** argv)
     hal_init(800, 600);
 
     extern int app_entry(int argc, char** argv);
-    app_entry(argc, argv);
+    int retval = app_entry(argc, argv);
+    if (retval != 0) {
+        return retval;
+    }
 
     while (1) {
         /* Periodically call the lv_task handler.
