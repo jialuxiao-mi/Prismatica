@@ -7,7 +7,6 @@
  *      INCLUDES
  *********************/
 #define _DEFAULT_SOURCE /* needed for usleep() */
-#include "lv_love.h"
 #include "lvgl/demos/lv_demos.h"
 #include "lvgl/examples/lv_examples.h"
 #include "lvgl/lvgl.h"
@@ -70,7 +69,8 @@ int main(int argc, char** argv)
     /*Initialize the display, and the input devices*/
     hal_init(800, 600);
 
-    lv_love_init();
+    extern int app_entry(int argc, char** argv);
+    app_entry(argc, argv);
 
     while (1) {
         /* Periodically call the lv_task handler.
